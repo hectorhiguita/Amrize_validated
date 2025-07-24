@@ -87,8 +87,8 @@ jobs:
 
     - name: Deployment Summary
       run: |
-        echo "🚀 Deployment completed successfully!"
-        echo "📦 Image: ${{ steps.build-image.outputs.image }}"
-        echo "🏗️ Service: ${{ env.ECS_SERVICE }}"
-        echo "🖥️ Cluster: ${{ env.ECS_CLUSTER }}"
-        echo "🌐 Application should be available at the Load Balancer URL"
+        echo " Deployment completed successfully!"
+        echo " Image: ${{ steps.build-image.outputs.image }}"
+        echo " Service: ${{ env.ECS_SERVICE }}"
+        echo " Cluster: ${{ env.ECS_CLUSTER }}"
+        echo " Application should be available at the Load Balancer URL"
