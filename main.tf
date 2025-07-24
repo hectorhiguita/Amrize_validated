@@ -7,7 +7,7 @@ terraform {
   }
 }
 provider "aws" {
-  region = "us-east-1"
+  region = var.aws_region
 }
 
 module "VPCs" {
@@ -27,6 +27,12 @@ module "ECS" {
   vpc_id             = module.VPCs.vpc_id
   security_group_ids = [module.VPCs.public_security_group_id]
   tags               = var.tags
+  container_image    = "${module.ECR.repository_url}:latest"
+  container_cpu      = var.container_cpu
+  container_memory   = var.container_memory
+  desired_count      = var.desired_count
+  log_retention_days = var.log_retention_days
+  aws_region         = var.aws_region
 }
 
 module "ECR" {

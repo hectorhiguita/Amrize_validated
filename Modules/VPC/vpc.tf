@@ -138,26 +138,3 @@ resource "aws_security_group" "sg_public_instance" {
   }
 }
 
-
-#module "mybucket" {
-#  source      = "./modulos/s3"
-#  bucket_name = "nombreunico1234567"
-#
-#}
-#output "s3_arn" {
-#  value = module.mybucket.s3_bucket_arn
-#}
-
-# module "terraform_state_backend" {
-#   source      = "cloudposse/tfstate-backend/aws"
-#   version     = "0.38.1"
-#   namespace   = "example"
-#   stage       = "prod"
-#   name        = "terraform"
-#   environment = "us-east-1"
-#   attributes  = ["state"]
-
-#   terraform_backend_config_file_path = "."
-#   terraform_backend_config_file_name = "backend.tf"
-#   force_destroy                      = false
-# }

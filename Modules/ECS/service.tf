@@ -2,7 +2,7 @@ resource "aws_ecs_service" "apache" {
   name            = "apache-service"
   cluster         = aws_ecs_cluster.ECS_Amrize.id
   task_definition = aws_ecs_task_definition.apache.arn
-  desired_count   = 2
+  desired_count   = var.desired_count
   launch_type     = "FARGATE"
 
   network_configuration {
@@ -30,14 +30,14 @@ resource "aws_lb_target_group" "ecs_targets" {
 
   health_check {
     enabled             = true
-    healthy_threshold   = 2
-    interval            = 30
+    healthy_threshold   = var.healthy_threshold
+    interval            = var.health_check_interval
     matcher             = "200"
-    path                = "/"
+    path                = var.health_check_path
     port                = "traffic-port"
     protocol            = "HTTP"
-    timeout             = 5
-    unhealthy_threshold = 2
+    timeout             = var.health_check_timeout
+    unhealthy_threshold = var.unhealthy_threshold
   }
 
   tags = {

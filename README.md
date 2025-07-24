@@ -103,6 +103,10 @@ terraform destroy
 4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
 5. Crea un Pull Request
 
+## Posibles mejoras
+
+En caso de ser un ambiente productivo, haría un par de mejoras. Lo primero es que a pesar de que quien recibe las peticiones es un ALB, yo pondría un WAF antes del ALB para poder garantizar mayor seguridad.
+
 ## Autor
 
 - **Alejandro Higuita** - [hahiguit](https://github.com/hahiguit)

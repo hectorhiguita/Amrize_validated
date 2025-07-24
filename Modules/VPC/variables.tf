@@ -22,7 +22,7 @@ variable "subnets" {
 variable "ingress_ports_list" {
   description = "List of ingress ports for security group"
   type        = list(number)
-  default     = [80, 443, 22]
+  default     = [80, 443]
 }
 
 variable "sg_ingress_cidr" {

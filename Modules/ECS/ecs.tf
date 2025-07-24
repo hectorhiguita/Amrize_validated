@@ -18,17 +18,17 @@ resource "aws_ecs_task_definition" "apache" {
   family                   = "apache-task"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  cpu                      = "256"
-  memory                   = "512"
+  cpu                      = var.container_cpu
+  memory                   = var.container_memory
   execution_role_arn       = aws_iam_role.ecs_execution_role.arn
   task_role_arn           = aws_iam_role.ecs_task_role.arn
 
   container_definitions = jsonencode([
     {
       name      = "apache"
-      image     = "506847187721.dkr.ecr.us-east-1.amazonaws.com/amrize-ecr-repo:latest"
-      cpu       = 256
-      memory    = 512
+      image     = var.container_image
+      cpu       = var.container_cpu
+      memory    = var.container_memory
       essential = true
       portMappings = [
         {
@@ -39,8 +39,8 @@ resource "aws_ecs_task_definition" "apache" {
       logConfiguration = {
         logDriver = "awslogs"
         options = {
-          "awslogs-group"         = "/ecs/apache"
-          "awslogs-region"        = "us-east-1"
+          "awslogs-group"         = aws_cloudwatch_log_group.apache_logs.name
+          "awslogs-region"        = var.aws_region
           "awslogs-stream-prefix" = "ecs"
         }
       }
@@ -50,7 +50,9 @@ resource "aws_ecs_task_definition" "apache" {
 
 resource "aws_cloudwatch_log_group" "apache_logs" {
   name              = "/ecs/apache"
-  retention_in_days = 7
+  retention_in_days = var.log_retention_days
+  
+  tags = var.tags
 }
 
 # IAM Role for ECS Execution

@@ -50,3 +50,33 @@ variable "ECR_Name" {
   description = "value for ECR repository name"
   type        = string
 }
+
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+  default     = "us-east-1"
+}
+
+variable "container_cpu" {
+  description = "CPU units for the ECS container"
+  type        = number
+  default     = 256
+}
+
+variable "container_memory" {
+  description = "Memory in MB for the ECS container"
+  type        = number
+  default     = 512
+}
+
+variable "desired_count" {
+  description = "Desired number of ECS tasks"
+  type        = number
+  default     = 2
+}
+
+variable "log_retention_days" {
+  description = "CloudWatch log retention in days"
+  type        = number
+  default     = 7
+}
