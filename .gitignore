@@ -8,6 +8,10 @@
 .terraformrc
 terraform.rc
 
+#Ignore Extra Files
+
+ARQUITECTURA_TECNICA.md
+
 # Crash log files
 crash.log
 

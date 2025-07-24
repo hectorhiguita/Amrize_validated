@@ -19,6 +19,10 @@ La infraestructura incluye:
 - **IAM**: Roles y políticas para servicios de AWS
 ![Configuración del ECR.](./imagenes/Roles.png)
 
+-   **Grafico de dependencias** : Finalmente, agrego un pequeño gráfico de dependencias creado desde terraform.
+
+![Grafico de dependencias](./imagenes/graph.svg)
+
 ## Estructura del Proyecto
 
 ```
