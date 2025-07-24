@@ -1,6 +1,8 @@
 # Amrize Infrastructure Project
 
-Este proyecto contiene la infraestructura como código (IaC) para el proyecto Amrize, implementado con Terraform en AWS.
+Este proyecto contiene la infraestructura como código (IaC) para el proyecto Amrize como prueba técnica de Alejandro Higuita, fue implementado usando módulos creados manualmente se Terraform en AWS y una pequeña imagen en apache con un texto plano en HTML para demostrar el sitio funcionando.
+
+Por el momento se no se usaron buckets S3 para guardar el terraform state, sin embargo sí se ocultaron de commit para evitar filtraciones de información.
 
 ## Descripción
 
@@ -53,12 +55,16 @@ La infraestructura incluye:
    terraform init
    ```
 
-4. **Planificar la infraestructura:**
+4. **Validar la infraestructura:**
+   ```bash
+   terraform validate
+   ```
+5. **Planificar la infraestructura:**
    ```bash
    terraform plan
    ```
 
-5. **Aplicar la infraestructura:**
+6. **Aplicar la infraestructura:**
    ```bash
    terraform apply
    ```
@@ -100,7 +106,3 @@ terraform destroy
 ## Autor
 
 - **Alejandro Higuita** - [hahiguit](https://github.com/hahiguit)
-
-## Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
