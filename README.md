@@ -7,7 +7,7 @@ Por el momento se no se usaron buckets S3 para guardar el terraform state, sin e
 
 Esta fue la infra Solicitada en su momento.
 
-![Infra Solicitada](./imagenes/"Infra Solicitada.png")
+![Infra Solicitada](./imagenes/Infra_Solicitada.png)
 
 ## Descripción
 
