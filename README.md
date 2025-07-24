@@ -9,10 +9,15 @@ Por el momento se no se usaron buckets S3 para guardar el terraform state, sin e
 La infraestructura incluye:
 
 - **VPC**: Red privada virtual con subnets públicas y privadas
+![Configuración de la VPC y Subnets](./imagenes/VPC_Image.png)
 - **ECS**: Cluster de contenedores para ejecutar aplicaciones
+![Configuración del ECS y las Taks.](./imagenes/ECS_Tasks.png)
 - **ECR**: Registro de contenedores de Docker
+![Configuración del ECR.](./imagenes/ECR_Repo.png)
 - **ALB**: Application Load Balancer para distribución de tráfico
+![Configuración del ECR.](./imagenes/ALB.png)
 - **IAM**: Roles y políticas para servicios de AWS
+![Configuración del ECR.](./imagenes/Roles.png)
 
 ## Estructura del Proyecto
 
@@ -105,7 +110,17 @@ terraform destroy
 
 ## Posibles mejoras
 
-En caso de ser un ambiente productivo, haría un par de mejoras. Lo primero es que a pesar de que quien recibe las peticiones es un ALB, yo pondría un WAF antes del ALB para poder garantizar mayor seguridad.
+A continuación desde mi perspectiva, voy a listar unas posibles mejoras sobre la infraestructura en caso de que fuera un ambiente productivo.
+
+1.  En primer lugar pondría un WAF con protección DDoS antes de load balancer, de esta manera tendía la protección de un Firewall como capa perimetral.
+2.  Como existiría un WAF, haría cambios en el Security Group, permitiendo únicamente las IPs que provienen del WAF y así no se podría apuntar hacia el DNS del ALB directamente.
+3.  Para el manejo de almacenamiento en caso de que la aplicación lo requiriera, usaría un S3 con encripción para conectarlo hacia el ECS y así poder tener la data abstraída del cluster.
+4.  En caso de tener una base de datos, tenerla en un VPC diferentes y con Peering Connection, adicional un Security group con los segmentos autorizados y únicamente los puertos necesarios.
+5.  Habilitaría estrategias de Backup como políticas de retención de imágenes en el lifecicle del ECR y versioning automático de las imagenes en el ECS.
+6.  Importante tener un sistema de monitoreo que permita ver el estado de las tasks.
+7.  Obviamente los repos de despliegue no serían públicos.
+8.  Para garantizar la fibilidad de las imagenes desplegadas en el ECR, habilitaría un sistema de encripción.
+9.  Para este ejercicio en particular, se crearon roles un poco Amplios, sin embargo sería también muy importante limitarlos a la política de mejor prilegio posible.
 
 ## Autor
 
