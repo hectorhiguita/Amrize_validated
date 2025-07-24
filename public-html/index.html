@@ -3,67 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amrize Application</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-        }
-        .info {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        .timestamp {
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
-    </style>
+    <title>Saludos de AMRIZE</title>
 </head>
 <body>
-    <div class="container">
-        <h1>🚀 Amrize Application</h1>
-        <p>¡Aplicación desplegada exitosamente en AWS ECS!</p>
-        <div class="info">
-            <h3>Información del Despliegue</h3>
-            <p><strong>Plataforma:</strong> AWS ECS con Fargate</p>
-            <p><strong>Registro:</strong> Amazon ECR</p>
-            <p><strong>Load Balancer:</strong> Application Load Balancer</p>
-            <p><strong>Infraestructura:</strong> Terraform</p>
-            <p><strong>CI/CD:</strong> GitHub Actions</p>
-        </div>
-        <div class="timestamp">
-            <p>Última actualización: <span id="timestamp"></span></p>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById('timestamp').textContent = new Date().toLocaleString('es-ES');
-    </script>
+    <h2>Hello AMRIZE</h2>
+    <p>Esta es mi aplicación en apache desplegada para el entorno de desarrollo de AWS y está funcionando correctamente.</p>
 </body>
 </html>
