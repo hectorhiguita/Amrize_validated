@@ -4,6 +4,11 @@ Este proyecto contiene la infraestructura como código (IaC) para el proyecto Am
 
 Por el momento se no se usaron buckets S3 para guardar el terraform state, sin embargo sí se ocultaron de commit para evitar filtraciones de información.
 
+
+Esta fue la infra Solicitada en su momento.
+
+![Infra Solicitada](./imagenes/"Infra Solicitada.png")
+
 ## Descripción
 
 La infraestructura incluye:
