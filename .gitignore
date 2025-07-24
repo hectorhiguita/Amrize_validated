@@ -45,3 +45,11 @@ Thumbs.db
 
 # Log files
 *.log
+
+# Docker files (but keep Dockerfile)
+# Comment these out if you want to include them
+# docker-compose.override.yml
+# .dockerignore
+
+# Local test artifacts
+task-definition.json
